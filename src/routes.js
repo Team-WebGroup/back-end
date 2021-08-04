@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const UserController = require('./app/controllers/userController');
 const SessionController = require('./app/controllers/sessionController');
+const ProductsController = require('./app/controllers/procutsController');
 
 const routes = Router();
 
@@ -10,5 +11,7 @@ routes.post('/user', UserController.store);
 routes.get('/user', UserController.get);
 routes.put('/user/:id', UserController.update);
 routes.delete('/user/:id', UserController.delete);
+
+routes.get('/procuts', );
 
 module.exports = routes;
