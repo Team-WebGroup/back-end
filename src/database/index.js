@@ -2,11 +2,12 @@ const sequelize = require('sequelize');
 const dbConfig = require('../config/database');
 
 const User = require('../app/models/User');
+const Product = require('../app/models/Product');
 
 
 const connection = new sequelize(dbConfig);
 
-const models = [User];
+const models = [User, Product];
 
 class Database {
   constructor() {
