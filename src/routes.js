@@ -5,6 +5,14 @@ const ProductsController = require('./app/controllers/prodcutsController');
 
 const routes = Router();
 
+routes.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
+});
+
 routes.post('/session', SessionController.store);
 
 routes.post('/user', UserController.store);
