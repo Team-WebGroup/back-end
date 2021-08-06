@@ -7,7 +7,7 @@ class UserController {
       const userExist = await User.findOne({ where: { email: req.body.email } });
 
       if (userExist) {
-        return res.status(400).json({ error: 'User already exists' });
+        return res.status(400).json({ msg: 'User already exists' });
       }
 
       const user = await User.create(req.body);
@@ -24,7 +24,7 @@ class UserController {
       const getUsers = await User.findAll();
 
       if(getUsers.length === 0) {
-        return res.status(400).json({ error: 'Users dosent exists' });
+        return res.status(400).json({ msg: 'Users dosent exists' });
       }
 
       return res.status(200).json(getUsers);
@@ -40,7 +40,7 @@ class UserController {
       const userUpdate = await User.findOne({ where: {id : req.params.id}});
       
       if (!userUpdate) {
-        return res.status(400).json({ error: 'User dosent exists' });
+        return res.status(400).json({ msg: 'User dosent exists' });
       }
       
       if(userUpdate.password_hash !== req.body.password_hash) {
@@ -61,7 +61,7 @@ class UserController {
       const userDelete = await User.findOne({where: {id: req.params.id}});
 
       if (!userDelete) {
-        return res.status(400).json({ error: 'User dosent exists' });
+        return res.status(400).json({ msg: 'User dosent exists' });
       }
       
       if(userDelete.password_hash !== req.body.password_hash) {
