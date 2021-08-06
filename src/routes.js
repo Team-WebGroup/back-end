@@ -29,7 +29,7 @@ routes.get('/products/asc', ProductsController.getAsc);
 routes.get('/products/desc', ProductsController.getDesc);
 routes.get('/products/bet', ProductsController.getBetween);
 
-routes.post('/address/:id', AuthMiddleware, AddressController.store);
+routes.post('/address/:id', AddressController.store);
 routes.get('/address', AuthMiddleware, AddressController.get);
 
 routes.get('/procuts', ); 
