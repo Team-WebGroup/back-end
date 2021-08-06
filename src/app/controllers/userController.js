@@ -21,13 +21,13 @@ class UserController {
 
   async get(req, res) {
     try {
-      const getUsers = await User.findAll();
+      const getUser = await User.findByPk(req.userID)
 
-      if(getUsers.length === 0) {
-        return res.status(400).json({ msg: 'Users dosent exists' });
+      if(!getUser) {
+        return res.status(400).json({ msg: 'User dosent exists' });
       }
 
-      return res.status(200).json(getUsers);
+      return res.status(200).json(getUser);
 
     } catch (error) {
       console.log(error);
