@@ -18,6 +18,10 @@ class User extends Model {
     })
   }
 
+  static associate(models) {
+    this.hasOne(models.Address, { foreignKey: 'id_user', as: 'address' });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }
