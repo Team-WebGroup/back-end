@@ -8,13 +8,13 @@ class AddressController {
   async store(req, res) {
     try {
       
-      const user = await User.findByPk(req.userID);
+      const user = await User.findByPk(req.params.id);
 
       if(!user) {
         return res.status(400).json({ msg: 'User dosent exists' });
       }
 
-      const address = await Address.create({...req.body, id_user: req.userID});
+      const address = await Address.create({...req.body, id_user: req.params.id});
 
       return res.status(200).json(address);
     } catch (error) {
