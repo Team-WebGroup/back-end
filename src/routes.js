@@ -2,7 +2,7 @@ const { Router } = require('express');
 const UserController = require('./app/controllers/userController');
 const SessionController = require('./app/controllers/sessionController');
 
-const ProductsController = require('./app/controllers/procutsController');
+const ProductsController = require('./app/controllers/productsController');
 const AddressController = require('./app/controllers/addressController');
 
 const AuthMiddleware = require('./app/middlewares/auth').auth;
