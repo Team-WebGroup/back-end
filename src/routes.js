@@ -23,9 +23,6 @@ routes.post('/session', SessionController.store);
 
 routes.post('/user', UserController.store);
 routes.get('/user', AuthMiddleware, UserController.get);
-routes.put('/user/:id',AuthMiddleware, UserController.update);
-routes.delete('/user/:id', UserController.delete);
-
 
 routes.get('/products', ProductsController.get);
 routes.get('/products/asc', ProductsController.getAsc);
