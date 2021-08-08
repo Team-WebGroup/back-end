@@ -1,7 +1,7 @@
 # Webshoes
 Projeto da disciplina de Banco de Dados
 
-Desenvolvido por: 
+Desenvolvido por: Daniel Themoteo, Evandro Duarte, Felipe Canuto e Nícolas Matias
 
 Run:
  - Create a schema in mysql workbench
