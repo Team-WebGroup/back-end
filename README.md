@@ -1,7 +1,7 @@
 # MilKasas
-Projeto da disciplina de Desenvolvimento de Aplicacoes Para a Internet
+Projeto da disciplina de Banco de Dados
 
-Desenvolvido por: Daniel Themoteo, Evandro Duarte, Felipe Canuto e Nícolas Matias
+Desenvolvido por: 
 
 Run:
  - Create a schema in mysql workbench
