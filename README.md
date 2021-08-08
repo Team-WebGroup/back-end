@@ -1,4 +1,4 @@
-# MilKasas
+# Webshoes
 Projeto da disciplina de Banco de Dados
 
 Desenvolvido por: 
