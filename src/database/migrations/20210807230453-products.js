@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('users', { 
+    await queryInterface.createTable('products', { 
       
       id: {
         type: Sequelize.INTEGER,
@@ -11,34 +11,34 @@ module.exports = {
         primaryKey: true,
       },
 
+      id_category: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'categories', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+    
       name: {
         type: Sequelize.STRING,
+        allowNull: false
+      },
+
+      desc: {
+        type: Sequelize.TEXT,
+      },
+
+      cost: {
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
 
-      lastname: {
-        type: Sequelize.STRING,
+      amount: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
 
-      cpf: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-
-      password_hash: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-
-      created_at: {
+      created_at:{
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -47,10 +47,11 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       }
+
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('products');
   }
 };
