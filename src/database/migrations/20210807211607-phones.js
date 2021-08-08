@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('users', { 
+    await queryInterface.createTable('phones', { 
       
       id: {
         type: Sequelize.INTEGER,
@@ -11,34 +11,20 @@ module.exports = {
         primaryKey: true,
       },
 
-      name: {
+      id_user: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+    
+      phone: {
         type: Sequelize.STRING,
         allowNull: false,
       },
 
-      lastname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-
-      cpf: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-
-      password_hash: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-
-      created_at: {
+      created_at:{
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -47,10 +33,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       }
-    });
+    }); 
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('phones');
   }
 };
