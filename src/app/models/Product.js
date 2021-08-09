@@ -1,17 +1,21 @@
 const Sequelize = require('sequelize');
-const {Model} = require('sequelize');
+const { Model } = require('sequelize');
 
 class Product extends Model {
   static init(sequelize) {
     super.init({
-      title: Sequelize.STRING,
-      text: Sequelize.FLOAT,
-      image_url: Sequelize.STRING,
-      category: Sequelize.STRING,
+      name: Sequelize.STRING,
+      desc: Sequelize.TEXT,
+      cost: Sequelize.FLOAT,
+      amount: Sequelize.INTEGER,
     }, {
       sequelize,
-      timestamps: false
     });
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Category, { foreignKey: 'id_category', as: 'category' });
+    this.hasMany(models.Sale, { foreignKey: 'id_product', as: 'sale' });
   }
 }
 

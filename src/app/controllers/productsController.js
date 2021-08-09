@@ -2,6 +2,17 @@ const Product = require('../models/Product');
 const { Op } = require("sequelize");
  
 class ProductsController {
+
+    async store(req, res) {
+      try {
+        const stroreProducts = await Product.create(req.body);
+        return res.status(200).json(stroreProducts);
+      } catch (error) {
+        console.log(error);
+        return res.status(500).json({ msg: "erro" });
+      }
+    }
+
     async get(req, res) {
         try {
             const getProducts = await Product.findAll();
@@ -12,9 +23,10 @@ class ProductsController {
           }
     }
 
-    async getAsc(req, res){
+    async getCate(req, res){
         try{
-          const getProducts = await Product.findAll({ separate: true, order: ['text']});
+          const getProducts = await Product.findAll({where:{id_category: req.params.id}});
+          console.log(req.params.id)
           return res.status(200).json(getProducts);
         }catch(err){
           console.log(err)
