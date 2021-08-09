@@ -1,5 +1,7 @@
 # Webshoes
-Projeto da disciplina de Banco de Dados
+
+Projeto da disciplina de Desenvolvimento de Aplicações Para a Internet
+
 
 Desenvolvido por: Daniel Themoteo, Evandro Duarte, Felipe Canuto e Nícolas Matias
 
